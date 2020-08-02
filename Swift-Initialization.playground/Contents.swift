@@ -577,3 +577,20 @@ struct Chessboard {
 let board = Chessboard()
 print(board.squareIsBlackAt(row: 0, column: 1))//true
 print(board.squareIsBlackAt(row: 7, column: 7))//false
+
+
+//反初始化
+/*
+ 在类实例被释放的时候，反初始化器就会立即被调用。你可以是用deinit
+ 关键字来写反初始化器，就如同写初始化器要用 init 关键字一样。
+ ⚠️反初始化器只在类类型中有效。
+ */
+//每个类当中只能有一个反初始化器。反初始化器不接收任何形式参数，并且不需要写圆括号：
+class ExampleClass {
+    deinit {
+        //
+    }
+}
+//反初始化器会在实例被释放之前自动被调用。你不能自行调用反初始化器。
+//父类的反初始化器可以被子类继承，并且子类的反初始化器实现结束之后父类的反初始化器会被调用。
+//父类的反初始化器总会被调用，就算子类没有反初始化器。
